@@ -1,0 +1,37 @@
+<h1>All blogs</h1>
+
+<a href="/blogs/new"> Create new post </a>
+  
+  <% @blogs.each do |blog| %>
+    <div id="<%= blog['id'] %>">
+      <br> Title : <br>
+      <%= blog["title"] %>
+      <br> <a href="/blogs/<%= blog["id"] %>" target="_blank"> View full post </a><br>
+      <%#= blog["contents"] %>
+      <br> created at : <br>
+      <%= blog["time"] %><br>
+      <a href="javascript:return(0);" class="delete" val="<%= blog['id']%>"> Delete </a>
+      <br><br><br>
+    </div>
+  <% end %>
+
+  
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script>
+
+    
+    $(".delete").click(function() {
+      postId = $(this).val();
+      url = "/blogs/" + postId
+      $.ajax({
+               type: "POST",
+               url: url,
+               data: {"_method":"delete"}
+      }).done(function(mesg){
+      alert(mesg);
+      $("#" + postId).fadeIn("slow"); 
+      }).fail(function(){
+      });
+    });
+
+    </script>

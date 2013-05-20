@@ -1,0 +1,16 @@
+<h1>Blog Post # <%= @blog["id"] %></h1>
+
+  <div id="<%= @blog["id"] %>">
+    <br><br> Title : <br>
+    <%= @blog["title"] %>
+    <br><br> Contents : <br>
+    <%= @blog["contents"] %>
+    <br><br> created at : <br>
+    <%= @blog["time"] %>
+    <br><br><br>
+  </div>
+  
+  <div>
+    <a href="/blogs"> View All </a>
+  </div>
+  

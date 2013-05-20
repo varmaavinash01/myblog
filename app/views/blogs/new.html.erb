@@ -1,0 +1,9 @@
+<h1>Create new blog</h1>
+
+<%= form_tag("/blogs", :method => "post") do %>
+  <%= label_tag(:q, "Title:") %><br>
+  <%= text_field_tag(:title) %><br><br>
+  <%= label_tag(:q, "Contents:") %><br>
+  <%= text_area_tag(:contents, "", :size => "30x15") %> <br>
+  <%= submit_tag("Create") %>
+<% end %>
